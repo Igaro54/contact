@@ -61,8 +61,7 @@ class main(Tk):
         Button(self.details_window, text="Retirer ce contact", command=partial(self.remove_contact, name)).pack()
         Button(self.details_window, text="Quitter", command=self.details_window.destroy).pack()
     def remove_contact(self, name):
-        remove = messagebox.askyesno("Supprimer un contact", "Êtes-vous sûr de vouloir supprimer ce contact ?")
-        if remove == True:
+        if messagebox.askyesno("Supprimer un contact", "Êtes-vous sûr de vouloir supprimer ce contact ?") == True:
             for key in self.contact_list:
                 if key == name:
                     del self.contact_list[key]
