@@ -7,7 +7,7 @@ class main(Tk):
         Tk.__init__(self)
         self.title("Créer un nouveau contact")
         self.geometry("400x300")
-        with open("C:/Users/igaro/Desktop/Python/contact/dist/contact-file.csv", "r") as contact_file_read:
+        with open("contact-file.csv", "r") as contact_file_read:
             self.contact_list = {row.split(",")[0]:[row.split(",")[1], row.split(",")[2], row.split(",")[3].rstrip("\n")] for row in contact_file_read}
         self.widgets()
     def widgets(self):
@@ -69,7 +69,7 @@ class main(Tk):
                     break
             self.contact_window.destroy()
     def terminate(self):
-        with open("C:/Users/igaro/Desktop/Python/contact/dist/contact-file.csv", "w", newline="") as contact_file:
+        with open("contact-file.csv", "w", newline="") as contact_file:
             contact_file_writer = csv.writer(contact_file)
             for key in self.contact_list:
                 contact_file_writer.writerow([key, self.contact_list[key][0], self.contact_list[key][1], self.contact_list[key][2]])
